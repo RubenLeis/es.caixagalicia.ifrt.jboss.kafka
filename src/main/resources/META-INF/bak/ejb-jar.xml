@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ejb-jar id="ejb-jar_ID" version="2.1" xmlns="http://java.sun.com/xml/ns/j2ee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/ejb-jar_2_1.xsd">
+    <display-name>Listener MQ por APB</display-name>
+    <enterprise-beans>
+        <message-driven id="ID_MDB_MQ_TEST">
+            <ejb-name>MDB_MQ_TEST</ejb-name>
+            <ejb-class>es.caixagalicia.ifrt.es.caixagalicia.ifrt.jboss.kafka.mdb.KafkaIfrtMdb</ejb-class>
+            <messaging-type>javax.jms.MessageListener</messaging-type>
+            <transaction-type>Container</transaction-type>
+            <message-destination-type>javax.jms.Queue</message-destination-type>
+            <env-entry>
+                <env-entry-name>metropolis/jms-mdb/Terminal</env-entry-name>
+                <env-entry-type>java.lang.String</env-entry-type>
+                <env-entry-value>TDAD</env-entry-value>
+            </env-entry>
+            <env-entry>
+                <env-entry-name>metropolis/jms-mdb/Servicio</env-entry-name>
+                <env-entry-type>java.lang.String</env-entry-type>
+                <env-entry-value>899:902</env-entry-value>
+            </env-entry>
+        </message-driven>
+    </enterprise-beans>
+    <assembly-descriptor>
+        <container-transaction>
+            <method>
+                <ejb-name>MDB_MQ_TEST</ejb-name>
+                <method-name>*</method-name>
+            </method>
+            <trans-attribute>Required</trans-attribute>
+        </container-transaction>
+    </assembly-descriptor>
+</ejb-jar>

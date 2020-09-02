@@ -1,4 +1,4 @@
-package es.caixagalicia.ifrt.es.caixagalicia.ifrt.jboss.kafka.mdb;
+package es.caixagalicia.ifrt.jboss.kafka.mdb;
 
 import javax.ejb.ActivationConfigProperty;
 import javax.ejb.MessageDriven;
